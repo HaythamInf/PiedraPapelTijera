@@ -1,0 +1,20 @@
+<div class="container">
+    <div class="ui-g-4"></div>
+    <div class="ui-g-4">
+        <p-card>
+            <p-header><h2>Round {{n_round? n_round:1}}</h2></p-header>
+        
+        <h2>{{selected_player? selected_player : "Player1"}}</h2>
+        <div class="container">
+            <form [formGroup]="players_choises" (submit)="Ingresar()">
+                <p-dropdown [options]="moves" formControlName="P_moves"></p-dropdown>
+                <br/>
+                <div class="container">
+                    <button class="btn_start" pButton  type="submit" label="Start"></button>
+                </div>
+            </form>
+        </div>
+        </p-card>
+    </div>
+    <div class="ui-g-4"></div>
+</div>

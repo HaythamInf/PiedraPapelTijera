@@ -1,0 +1,33 @@
+
+<div class="ui-g-4"></div>  
+<div class="ui-g-4">
+  <p-card>
+    <p-header>
+      <div class="ui-g-12">Register Your Names Players</div>
+    </p-header>
+    
+    <form [formGroup]="players_names" (submit)="Ingresar()">
+      <br/>
+      <br/>
+      <span class="ui-float-label">
+          <input formControlName="playerone" type="text" size="30" pInputText> 
+          <label for="float-input">Player One Name</label>                
+        </span>
+      
+      
+        <br/>
+      <span class="ui-float-label">
+        <input formControlName="playertwo" type="text" size="30" pInputText> 
+        <label for="float-input">Player Two Name</label>                
+      </span>
+      <br/>
+      <button class="btn_start" pButton  type="submit" label="Start"></button>
+    </form>
+  
+  
+  </p-card>
+</div>
+<div class="ui-g-4"></div>
+
+    
+           
