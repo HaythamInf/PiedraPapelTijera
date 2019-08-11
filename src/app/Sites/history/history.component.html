@@ -1,1 +1,19 @@
-<p>history works!</p>
+<table>
+    <tr>
+        <td>
+            <h2>Score</h2>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <h3>Round</h3>
+        </td>
+        <td>
+            <h3>Winner</h3>
+        </td>
+    </tr>
+    <tr *ngFor="let item of items">
+        <td>{{items.round}}</td>
+        <td>{{items.winner_player}}</td>
+    </tr>
+</table>

@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { MainComponent } from './Sites/main/main.component';
 import { GameComponent } from './Sites/game/game.component';
+import {HistoryComponent} from './Sites/history/history.component';
 
 
 const routes: Routes = [
@@ -14,7 +15,13 @@ const routes: Routes = [
   {
     path: '',
     component: MainComponent,
-},
+  },
+
+  {
+    path: 'history',
+    component: HistoryComponent,
+
+  },
 
 
 
