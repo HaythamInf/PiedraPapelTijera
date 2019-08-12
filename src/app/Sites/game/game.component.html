@@ -14,7 +14,7 @@
                 
                 <br/>
                 <div class="container">
-                    <button class="btn_start" pButton  type="submit" label="Start"></button>
+                    <button class="btn_start" pButton  type="submit" label="Start" [disabled]="this.players_choises.controls['P_moves'].value == ''"></button>
                 </div>
             </form>
         </div>
@@ -48,17 +48,18 @@
     
         <p-card>
             <p-header>
-                <h2 style="margin-left:10%">We have a Winner</h2>
-                <h1 style="margin-left:20%">THE WINNER IS ...</h1>
+                <h2 class="ml10">We have a Winner</h2>
+                <h1 class="ml20">THE WINNER</h1>
             </p-header>
                     
-            <h1 style="margin-left:15%" [hidden]="win_count_p1==3">{{player2}} is the new EMPREROR!</h1>    
-            <h1 style="margin-left:15%" [hidden]="win_count_p2==3">{{player1}} is the new EMPREROR!</h1>
+            <h1 class="ml30" [hidden]="win_count_p1==3">{{player2}} </h1>    
+            <h1 class="ml30" [hidden]="win_count_p2==3">{{player1}} </h1>
+            <h1 class="ml40">is the new EMPREROR!</h1>
             <br/>
             <p-button label="Change Configuration" style="margin-left: 30%" (onClick)="ChangeConfiguration()"></p-button>
             <br/>
             <br/>
-            <p-button label="Play Again" style="margin-left: 40%" (onClick)="main()"></p-button>
+            <p-button label="Play Again" class="ml40" (onClick)="main()" ></p-button>
 
         </p-card>
                 

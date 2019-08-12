@@ -66,6 +66,9 @@ export class GameComponent implements OnInit, OnDestroy
   }
   GameStart(){
     //alert("Player 1:" + this.player1 + " Player 2:" + this.player2);
+    if(this.players_choises.controls["P_moves"].value == ''){
+      alert('You need to pick a move');
+    }
     this.CheckRound(this.n_round,this.turn);
   }
   ngOnInit() 
@@ -103,6 +106,14 @@ export class GameComponent implements OnInit, OnDestroy
       this.selected_player = this.player1;
       this.turn = 0;
       this.whoWon(this.n_round);
+      if(this.win_count_p1 ==3){
+        this.win_count=3;
+        return;
+      }
+      if(this.win_count_p2 ==3){
+        this.win_count=3;
+        return;
+      }
       this.n_round++;
       return;
     }
@@ -119,9 +130,6 @@ export class GameComponent implements OnInit, OnDestroy
 
   CheckRound(round:number,turn:number){
     debugger;
-    if(this.win_count == 3){
-      round = 0;
-    }
     switch(round)
     {
       case 0:
@@ -142,6 +150,7 @@ export class GameComponent implements OnInit, OnDestroy
   }
 
   whoWon(round:number){
+    
    let i = round + round;
    const p1_turn = this.turn_player[i-2];
    const p2_turn = this.turn_player[i-1];
@@ -160,7 +169,7 @@ export class GameComponent implements OnInit, OnDestroy
           winner: this.player1
         });
         this.win_count_p1++;
-        this.win_count++;
+        
       }
       else{
         //Player 2 Wins
@@ -169,7 +178,7 @@ export class GameComponent implements OnInit, OnDestroy
           winner: this.player2
         });
         this.win_count_p2++;
-        this.win_count++;
+        
       }
 
     } 
