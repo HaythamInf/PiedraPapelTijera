@@ -15,6 +15,7 @@ export class ConfigComponent implements OnInit {
   move : string;
   kill : string;
   new_moveSet : {move:string,kill:string};
+  list_move : Array<{label:string,value:string}>;
 
   constructor(fb:FormBuilder,
     private router: Router,
@@ -28,7 +29,9 @@ export class ConfigComponent implements OnInit {
       kill_input: ['', [Validators.required]]
       
     });
-
+    
+    this.fillDropdownMoves();
+    
     }
 
   ngOnInit() {
@@ -39,10 +42,20 @@ export class ConfigComponent implements OnInit {
     this.kill = this.new_move.value.kill_input;
     this.new_moveSet = {move:this.move,kill:this.kill};
     this.movesservice.setNewMove(this.new_moveSet);
-
+    this.fillDropdownMoves();
   }
   main(){
     this.router.navigate(['']);
+  }
+
+  fillDropdownMoves(){
+    debugger;
+    this.list_move = [];
+    this.list_move = [{label:"Select a Move",value:""}];
+    for (let index = 0; index < this.moveSet.length; index++) {
+      const element = this.moveSet[index];
+      this.list_move.push({label:element.move,value:element.move});
+    }
   }
 
 }

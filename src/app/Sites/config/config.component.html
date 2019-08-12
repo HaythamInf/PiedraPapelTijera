@@ -32,11 +32,10 @@
                 <input formControlName="move_input" type="text" size="30" pInputText> 
                 <label for="float-input">Move</label>
             </span>
-            <br/><br/>
-            <span class="ui-float-label">
-                <input formControlName="kill_input" type="text" size="30" pInputText> 
-                <label for="float-input">Wins To</label>
-            </span>
+            <br/>
+            <label for="float-input">Wins to</label>
+            <br/>
+            <p-dropdown [options]="list_move" formControlName="kill_input" ></p-dropdown>
         </div>
         <table>
                 <tr>
