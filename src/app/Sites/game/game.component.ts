@@ -4,6 +4,7 @@ import {FormBuilder, FormControl, FormGroup, Validators} from '@angular/forms';
 import { PlayerServiceService } from 'src/app/Services/player-service.service';
 import { MoveSetService } from 'src/app/Services/move-set.service';
 import {Router} from '@angular/router';
+import { Moves } from 'src/app/Class/moves';
 
 interface class_move {
   label: string;
@@ -28,6 +29,7 @@ export class GameComponent implements OnInit, OnDestroy
   selected_player: string;
   n_round: number;
   turn: number;
+  list_moves: Array<Moves>;
 
   public players_choises : FormGroup;
   moves: SelectItem[];
@@ -44,12 +46,21 @@ export class GameComponent implements OnInit, OnDestroy
     });
 
     this.moves = 
-    [
-      {label:'Select a Move', value:''},
-      {label:'Rock', value:'rock'},
-      {label:'Paper', value:'paper'},
-      {label:'Scissor', value:'scissor'},
-    ];
+    [{label:'Select a Move', value:''}];
+    
+    debugger;
+    
+    this.list_moves = this.movesservice.getMoveSet();
+    
+    for (let index = 0; index < this.list_moves.length; index++) {
+      const element = this.list_moves[index];
+      this.moves.push({label:element.move,value:element.move})
+    }
+    
+
+
+
+
     this.player1 = this.playerservice.player1;
     this.player2 = this.playerservice.player2;
   }
