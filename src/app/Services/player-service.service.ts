@@ -7,5 +7,4 @@ import { Injectable } from '@angular/core';
 export class PlayerServiceService {
 public player1 :string;
 public player2 :string;
-
 }

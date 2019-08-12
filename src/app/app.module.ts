@@ -14,9 +14,11 @@ import {ReactiveFormsModule} from '@angular/forms';
 import {InputTextModule} from 'primeng/inputtext';
 import {DropdownModule} from 'primeng/dropdown';
 import {FormsModule} from '@angular/forms';
+import {TableModule} from 'primeng/table';
 
 import { HttpClientModule } from '@angular/common/http';
 import { HttpModule } from '@angular/http';
+import { ConfigComponent } from './Sites/config/config.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -24,6 +26,7 @@ import { HttpModule } from '@angular/http';
     HistoryComponent,
     SettingsComponent,
     GameComponent,
+    ConfigComponent,
   ],
   imports: [
     BrowserModule,
@@ -36,7 +39,8 @@ import { HttpModule } from '@angular/http';
     InputTextModule,
     FormsModule,
     HttpClientModule,
-    HttpModule
+    HttpModule,
+    TableModule
 
   ],
   providers: [],

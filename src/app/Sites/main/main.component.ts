@@ -20,6 +20,8 @@ export class MainComponent implements OnInit,OnDestroy {
       playerone: ['', [Validators.required, Validators.maxLength(100)]],
       playertwo: ['', [Validators.required, Validators.maxLength(100)]]
     });
+    
+
   }
   
   ngOnInit() {
@@ -27,6 +29,7 @@ export class MainComponent implements OnInit,OnDestroy {
 
   Ingresar()
   {
+    debugger;
     this.router.navigate(['/game']);
   }
   

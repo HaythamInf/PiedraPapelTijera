@@ -1,13 +1,17 @@
-<div class="container">
-    <div class="ui-g-4"></div>
+<div class="container" [hidden]="win_count==3">
+    <div class="ui-g-2"></div>
     <div class="ui-g-4">
+
         <p-card>
             <p-header><h2>Round {{n_round? n_round:1}}</h2></p-header>
         
-        <h2>{{selected_player? selected_player : "Player1"}}</h2>
+        <h2> Turn of Player : {{selected_player? selected_player : "[Player Name]"}}</h2>
         <div class="container">
-            <form [formGroup]="players_choises" (submit)="Ingresar()">
-                <p-dropdown [options]="moves" formControlName="P_moves"></p-dropdown>
+            <form [formGroup]="players_choises" (submit)="GameStart()">
+                <div class="container">
+                    <p-dropdown [options]="moves" formControlName="P_moves"></p-dropdown>
+                </div>
+                
                 <br/>
                 <div class="container">
                     <button class="btn_start" pButton  type="submit" label="Start"></button>
@@ -16,9 +20,50 @@
         </div>
         </p-card>
     </div>
+    <div class="ui-g-2"></div>
     <div class="ui-g-4">
-        <div class="container">
-                <HistoryComponent></HistoryComponent>
+        <div class="container" [hidden]="n_round==1">
+            <h2>Score</h2>
+            <p-table [value]="score">
+                    <ng-template pTemplate="header">
+                        <tr>
+                            <th>Round</th>
+                            <th>Winner</th>
+                        </tr>
+                    </ng-template>
+                    <ng-template pTemplate="body" let-r>
+                        <tr>
+                            <td>{{r.round}}</td>
+                            <td>{{r.winner}}</td>
+                        </tr>
+                    </ng-template>
+                </p-table>
         </div>
     </div>
+</div> 
+
+<div class="ui-g-4"></div>
+<div class="ui-g-4">
+    <div class="container" [hidden]="!(win_count==3)"> 
+    
+        <p-card>
+            <p-header>
+                <h2 style="margin-left:10%">We have a Winner</h2>
+                <h1 style="margin-left:20%">THE WINNER IS ...</h1>
+            </p-header>
+                    
+            <h1 style="margin-left:15%" [hidden]="win_count_p1==3">{{player2}} is the new EMPREROR!</h1>    
+            <h1 style="margin-left:15%" [hidden]="win_count_p2==3">{{player1}} is the new EMPREROR!</h1>
+            <br/>
+            <p-button label="Change Configuration" style="margin-left: 30%" (onClick)="ChangeConfiguration()"></p-button>
+            <br/>
+            <br/>
+            <p-button label="Play Again" style="margin-left: 40%" (onClick)="main()"></p-button>
+
+        </p-card>
+                
+    </div>
 </div>
+<div class="ui-g-4"></div>
+
+

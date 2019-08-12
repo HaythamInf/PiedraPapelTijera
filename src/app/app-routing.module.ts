@@ -3,13 +3,13 @@ import { Routes, RouterModule } from '@angular/router';
 import { MainComponent } from './Sites/main/main.component';
 import { GameComponent } from './Sites/game/game.component';
 import {HistoryComponent} from './Sites/history/history.component';
+import { ConfigComponent } from './Sites/config/config.component';
 
 
 const routes: Routes = [
   {
     path: 'game',
-    component: GameComponent,
-    data : {some_data : 'some value'}
+    component: GameComponent
   },
   
   {
@@ -20,7 +20,11 @@ const routes: Routes = [
   {
     path: 'history',
     component: HistoryComponent,
+  },
 
+  {
+    path: 'config',
+    component: ConfigComponent,
   },
 
 

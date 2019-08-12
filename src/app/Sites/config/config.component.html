@@ -1,0 +1,50 @@
+<div class="ui-g">
+<div class="ui-g-2"></div>
+<div class="ui-g-8">
+    <p-table [value]="moveSet">
+        <ng-template pTemplate="header">
+            <tr>
+                <th>Move</th>
+                <th>Wins To</th>
+            </tr>
+        </ng-template>
+        <ng-template pTemplate="body" let-r>
+            <tr>
+                <td>{{r.move}}</td>
+                <td>{{r.kill}}</td>
+            </tr>
+        </ng-template>
+    </p-table>
+</div>
+<div class="ui-g-2"></div>
+
+<div class="ui-g-4"></div>
+<div class="ui-g-4">
+
+   <p-card class="ui-card-shadow ui-card ui-widget ui-widget-content ui-corner-all">
+        <p-header>
+            <h2 style="margin-left: 20px">Register a new Move!</h2>
+        </p-header>
+        <form [formGroup]="new_move" (submit)="registerMove()">
+        <div class="ui-card-body">
+            
+            <span class="ui-float-label">
+                <input formControlName="move_input" type="text" size="30" pInputText> 
+                <label for="float-input">Move</label>
+            </span>
+            <br/><br/>
+            <span class="ui-float-label">
+                <input formControlName="kill_input" type="text" size="30" pInputText> 
+                <label for="float-input">Wins To</label>
+            </span>
+        </div>
+        <table>
+                <tr>
+                    <td><p-button label="Register" type="submit"></p-button></td>
+                    <td><p-button label="Go to Home" (onClick)="main()"></p-button></td>
+                </tr>
+        </table>
+        </form>
+   </p-card>
+</div>
+</div>
