@@ -1,14 +1,15 @@
 import { Injectable } from '@angular/core';
 import { Moves } from '../Class/moves';
 import { MoveSet } from '../Class/moveSet';
+import { Move_s } from '../Class/move_mocker';
 
 @Injectable({
   providedIn: 'root'
 })
 
 export class MoveSetService {
-  public class_moves : Moves;
-  move_list : Array<Moves>;
+  public class_moves : Move_s;
+  move_list : Array<Move_s>;
   constructor(){
     this.move_list = MoveSet;
   }

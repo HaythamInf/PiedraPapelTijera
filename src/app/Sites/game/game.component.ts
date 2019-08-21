@@ -5,6 +5,7 @@ import { PlayerServiceService } from 'src/app/Services/player-service.service';
 import { MoveSetService } from 'src/app/Services/move-set.service';
 import {Router} from '@angular/router';
 import { Moves } from 'src/app/Class/moves';
+import { Move_s } from 'src/app/Class/move_mocker';
 
 interface class_move {
   label: string;
@@ -29,7 +30,7 @@ export class GameComponent implements OnInit, OnDestroy
   selected_player: string;
   n_round: number;
   turn: number;
-  list_moves: Array<Moves>;
+  list_moves: Array<Move_s>;
 
   public players_choises : FormGroup;
   moves: SelectItem[];

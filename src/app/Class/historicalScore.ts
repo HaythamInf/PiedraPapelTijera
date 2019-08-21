@@ -1,7 +1,7 @@
 
 export class HistoricalScore{
-    id:number;
-    player:string;
-    won:string;
-    date:string;
+    SCORE_ID : number;
+    PLAYER : string;
+    WON_AGGAINST : string;
+    CREATED_ON :string;
     }

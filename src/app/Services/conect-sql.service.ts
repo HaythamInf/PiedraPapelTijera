@@ -1,31 +1,45 @@
 import { Injectable } from '@angular/core';
+import { HttpClient, HttpParams, HttpHeaders } from '@angular/common/http';
+import { Moves } from '../Class/moves';
+import { HistoricalScore } from '../Class/historicalScore';
+import { Observable } from 'rxjs';
+
+
 
 @Injectable({
   providedIn: 'root'
 })
 
-// const sql = require('mssql');
-
 export class ConectSQLService {
-  public dbConection: string;
+  GetMovesUrl:string;
+  GetScoreUrl:string; 
   
 
-  constructor() { 
-    this.dbConection="Driver={ODBC Driver 13 for SQL Server};Server=tcp:sqlentrevistascmtx.database.windows.net,1433;Database=RockPaperScissor;Uid=administrador@sqlentrevistascmtx;Pwd=ASD123er;Encrypt=yes;TrustServerCertificate=no;Connection Timeout=30;"}
+  constructor(private _http: HttpClient) 
+  { 
+    this.GetMovesUrl = 'http://localhost:51672/api/GetMoves';
+    this.GetScoreUrl = 'http://localhost:51672/api/GetScore';
+    
+  }
+  // getMoveSet(){
+  //   return this._http.get<Moves[]>(this.GetMovesUrl,{header:string})
+  // }
+  
+  getMoveSet(): Observable<any>{
+    //const  params = new  HttpParams().set('_page', "1").set('_limit', "1");
+    //const  headers = new  HttpHeaders().set("X-CustomHttpHeader", "CUSTOM_VALUE");
+    const  headers = new  HttpHeaders().set("Content-Type", "application/json; charset=utf-8");
 
-    // ConectarDB(){
-    //   async () => {
-    //     try {
-    //         await sql.connect('mssql://administrador@sqlentrevistascmtx:ASD123er@tcp:sqlentrevistascmtx.database.windows.net/RockPaperScissor')
-    //         const result = await sql.query`select * from HISTORICAL_SCORE`
-    //         console.dir(result)
-    //     } catch (err) {
-    //         // ... error checks
-    //     }
-    //   }
+    return this._http.get(this.GetMovesUrl,{headers});
+  }
 
-    // }
+  getScore(){
+    return this._http.get<HistoricalScore[]>(this.GetScoreUrl)
+  }
+
 }
+
+
 
 
  

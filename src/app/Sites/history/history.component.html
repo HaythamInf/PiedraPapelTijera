@@ -12,10 +12,35 @@
             </ng-template>
             <ng-template pTemplate="body" let-r>
                 <tr>
-                    <td>{{r.id}}</td>
-                    <td>{{r.player}}</td>
-                    <td>{{r.won}}</td>
-                    <td>{{r.date}}</td>
+                    <td>{{r.SCORE_ID}}</td>
+                    <td>{{r.PLAYER}}</td>
+                    <td>{{r.WON_AGGAINST}}</td>
+                    <td>{{r.CREATED_ON}}</td>
+                </tr>
+            </ng-template>
+        </p-table>
+    </div>
+    <div class="ui-g-2"></div>
+</div>
+
+<div class="ui-g">
+    <div class="ui-g-2"></div>
+    <div class="ui-g-8">
+        <p-table [value]="MoveSets">
+            <ng-template pTemplate="header">
+                <tr>
+                    <th>ID</th>
+                    <th>Move</th>
+                    <th>Wins To</th>
+                    
+                </tr>
+            </ng-template>
+            <ng-template pTemplate="body" let-dr>
+                <tr>
+                    <td>{{dr.MOVES_ID}}</td>
+                    <td>{{dr.MOVES_NAME}}</td>
+                    <td>{{dr.MOVES_KILL}}</td>
+                    
                 </tr>
             </ng-template>
         </p-table>

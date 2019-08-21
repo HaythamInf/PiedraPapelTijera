@@ -1,5 +1,6 @@
 //Moves declaration
 export class Moves{
-move:string;
-kill:string;
+    MOVES_ID:number;
+    MOVES_NAME:string;
+    MOVES_KILL:string;
 }
